@@ -95,7 +95,7 @@ There are various RAM types for Erista, and better types can reach higher clocks
 #### Samsung MGHC
 - **RAM Clock:** 1862-2133Mhz
 - **VDD2:** 1175mv
-- **Timings:** Common (3-3-2) 0-4-4-0-6 or ST (4-4-4) 1-4-5-0-6 
+- **Timings:** Common (3-3-2) 0-4-4-3-6 or ST (4-4-4) 1-4-5-3-6 
 - **HP mode:** 1
 ---
 
