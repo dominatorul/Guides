@@ -170,7 +170,7 @@ Miscellaneous Settings:
 
 - Your atmosphere version is likely not up-to-date, update your atmosphere version.
 - CPU UV level is too high, lower it or set it to 0.
-###Credits
+### Credits
 
 
 
