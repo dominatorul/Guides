@@ -2,6 +2,7 @@
 ## Table of Contents
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
+- [Fixing archive bit](#fixing-archive-bit)
 - [Setting up the kip](#setting-up-the-kip)
 - [Turning on the overclock using sys-clk](#turning-on-the-overclock-using-sys-clk)
 - [Using FPSLocker to Unlock 60 FPS](#using-fpslocker-to-unlock-60-fps)
@@ -85,6 +86,8 @@ kip1=atmosphere/kips/loader.kip
 cal0blank=0
 emummc_force_disable=1
 ```
+###Fixing archive bit
+- Boot `Hekate`, select `Tools` > `Arch Bit • RCM • Touch • pkg1/2`> `Fix Archive Bit`.
 
 ### Setting up the kip
 
@@ -93,21 +96,18 @@ emummc_force_disable=1
 	- Go to Console Info - HW & Fuses. 
 	- Note your DRAM ID, CPU Speedo 0, CPU Speedo 2, and SoC Speedo.
 
-1. **Archive bit:** 
-    - In `Hekate` select `Tools` > `Arch Bit • RCM • Touch • pkg1/2`> `Fix Archive Bit`.
-
-2. **Launch CFW:** 
+1. **Launch CFW:** 
     - Launch CFW on your switch.
 
-3. **Accessing Overlays:**
+2. **Accessing Overlays:**
     - Press `ZL`, `ZR`, and `DPAD DOWN` simultaneously to access overlays. If that doesn't work, try `L`, `D-pad down` and `R-stick`.
     - To edit the key combination in `Ultrahand`, press `+` then navigate into `Key Combo` menu. I personally use `L`, `R`, and `DPAD UP`.
 
-4. **Open OC Switchcraft EOS Overlay:**
+3. **Open OC Switchcraft EOS Overlay:**
 	- Open `Ultrahand`
 	- Press `D-pad right` and click on `OC Switchcraft EOS`
 
-5. **Tweak the settings of the KIP inside OC Switchcraft EOS Overlay:**
+4. **Tweak the settings of the KIP inside OC Switchcraft EOS Overlay:**
 	- Follow those guides based on your configuration to do proper overclocking.
 
 !!!note You have to restart the console every time you edit something in the kip settings to apply new settings.
