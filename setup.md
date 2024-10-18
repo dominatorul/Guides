@@ -1,4 +1,5 @@
 # How to setup everything to get 60 fps in games
+In this guide you will learn how to setup EOS and how to use FPS Locker to achieve 60 fps.
 ## Table of Contents
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
@@ -8,8 +9,13 @@
 - [Using FPSLocker to Unlock 60 FPS](#using-fpslocker-to-unlock-60-fps)
 - [Using ReverseNX-RT](#using-reversenx-rt)
 - [Using Status Monitor to monitor the FPS](#using-status-monitor-to-monitor-the-fps)
+- [Using EdiZon](#using-edizon)
 - [Troubleshooting and Further Information](#troubleshooting-and-further-information)
 - [Credits](#credits)
+- [Mariko(Oled, Lite, V2) settings guide](https://rentry.co/mariko)
+- [Erista(V1) settings guide](https://rentry.co/erista)
+- [How to test stability](https://rentry.co/howtoteststability)
+
 ### Prerequisites
 
 - **Latest [Atmosphere CFW](https://github.com/Atmosphere-NX/Atmosphere/releases):** Ensure you have latest Atmosphere CFW installed. Other CFWs like SX OS are not supported.
@@ -30,7 +36,7 @@
     - Accept any prompts about overwriting folders.
 
 3. **EOS**
-    - Download the latest `EOS` version from [this Discord channel](https://discord.com/channels/854839758815363072/1173171845139288114) or [this Discord channel](https://discord.com/channels/763191086117814282/1203736877023240253).
+    - Download the latest `EOS` version from [Github](https://github.com/halop/OC-Switchcraft-EOS/releases/latest) or [this Discord channel](https://discord.com/channels/854839758815363072/1173171845139288114) or [this Discord channel](https://discord.com/channels/763191086117814282/1284930772284997713).
     - Extract the archive.
     - Open the `copy_to_SD` folder.
     - Copy its contents to the root of your SD card.
@@ -63,18 +69,16 @@
 
 8. **hekate-ipl**
     - Open the `bootloader/hekate_ipl.ini` file on your SD card.
-    - Add the following line to your boot entry: `kip1=atmosphere/kips/loader.kip`.
+    - Add the following line to your boot entry: `kip1=atmosphere/kips/*`.
 
-
-
- Alternatively, you can replace your `hekate_ipl.ini` file with the following content:
+ Alternatively, you can replace the content of your `hekate_ipl.ini` file with the following content:
 
 ```ini
 {------ Atmosphere ------}
 [CFW on EMUNAND]
 fss0=atmosphere/package3
 kip1patch=nosigchk
-kip1=atmosphere/kips/loader.kip
+kip1=atmosphere/kips/*
 cal0blank=1
 emummcforce=1
 
@@ -82,10 +86,46 @@ emummcforce=1
 [CFW on SYSNAND]
 fss0=atmosphere/package3
 kip1patch=nosigchk
-kip1=atmosphere/kips/loader.kip
+kip1=atmosphere/kips/*
+cal0blank=0
+emummc_force_disable=1
+
+{------ Atmosphere ------}
+[CFW on EMUNAND without KIP]
+fss0=atmosphere/package3
+kip1patch=nosigchk
+cal0blank=1
+emummcforce=1
+
+{------ Atmosphere ------}
+[CFW on SYSNAND without KIP]
+fss0=atmosphere/package3
+kip1patch=nosigchk
 cal0blank=0
 emummc_force_disable=1
 ```
+
+9. (Optional) **EdiZon Overlay**
+   - Download the latest `ovlEdiZon.ovl` release from [this link](https://github.com/ppkantorski/EdiZon-Overlay/releases/latest)
+   - Copy the `ovlEdiZon.ovl` file to the `switch\.overlays` folder.
+   - Note: It may not be visible in USB Mass Storage, but it’s there.
+   - Navigate to the `atmosphere/config_templates` folder on the root of your microSD card.
+   - Open the `system_settings.ini` file and paste this at the bottom of all the text:
+
+```ini
+[atmosphere]
+; Controls whether dmnt cheats should be toggled on or off by
+; default. 1 = toggled on by default, 0 = toggled off by default.
+dmnt_cheats_enabled_by_default = u8!0x0
+; Controls whether dmnt should always save cheat toggle state
+; for restoration on new game launch. 1 = always save toggles,
+; 0 = only save toggles if toggle file exists.
+dmnt_always_save_cheat_toggles = u8!0x1
+```
+
+- Move the `system_settings.ini` file from the `atmosphere/config_templates` folder to the `atmosphere/config` folder.
+
+
 ###Fixing archive bit
 - Boot `Hekate`, select `Tools` > `Arch Bit • RCM • Touch • pkg1/2`> `Fix Archive Bit`.
 
@@ -161,6 +201,11 @@ Miscellaneous Settings:
 2. Choose a mode to check FPS, temperature, voltage, usage, etc. It's recommended to use `Mini` or `Micro mode`.
 3. To exit the overlay, hold your `Ultrahand` key combo for 3 seconds.
 
+###Using EdiZon
+0. Download cheats. Launch `All-in-One Switch Updater` from the `hbmenu`. Move to `Download cheats` on the left panel, then select `Download GBAtemp.net cheat archive (ver xxxxxxxx)` from the right panel (this will only download cheats for the titles you have installed. If you want to download all available cheats you can select `Download GBAtemp.net cheat codes`).
+1. Launch a game and open `Ultrahand`. Select `EdiZon`. Click on `Cheats`. 
+2. Enable and disable cheats by pressing A, a cheat is enabled if it says 'On'. Sometimes cheats may require turning them on and off for them to work. Ensure you disable cheats you are not using i.e. disable the 30FPS cheat if using the 60FPS cheat or disable the 720p cheat if using a 1080p cheat.
+
 ### Troubleshooting and Further Information
 
 - **READMEs:** For any questions or troubleshooting, refer to the READMEs of the respective tools.
@@ -170,7 +215,7 @@ Miscellaneous Settings:
 
 - Your atmosphere version is likely not up-to-date, update your atmosphere version.
 - CPU UV level is too high, lower it or set it to 0.
-### Credits
+###Credits
 
 
 
