@@ -5,21 +5,22 @@
 ---
 
 ## Table of Contents
-1. [Safety Disclaimer](#safety-disclaimer)
-2. [Mariko Limits](#mariko-limits)
-3. [Monitoring Your Switch](#monitoring-your-switch)
-4. [Checking Speedo and RAM Type](#checking-speedo-and-ram-type)
-5. [RAM Tiers](#ram-tiers-higher-is-better)
-6. [OC Settings for Switchcraft](#oc-settings-for-switchcraft)
+- [Safety Disclaimer](#safety-disclaimer)
+- [Mariko Limits](#mariko-limits)
+- [Monitoring Your Switch](#monitoring-your-switch)
+- [Checking Speedo and RAM Type](#checking-speedo-and-ram-type)
+- [RAM Tiers](#ram-tiers-higher-is-better)
+- [OC Settings for Switchcraft](#oc-settings-for-switchcraft)
    - [CPU Settings](#cpu-settings)
    - [GPU Settings](#gpu-settings)
    - [RAM Settings](#ram-settings)
-7. [Clock Settings](#clock-settings)
+- [Clock Settings](#clock-settings)
    - [Mariko Max Safe on Battery](#mariko-max-safe-on-battery-hac-001-01-heg-001)
    - [Switch Lite Max Safe Clocks on Battery](#switch-lite-max-safe-clocks-on-battery-hdh-001)
    - [Mariko Max Clocks Docked and Plugged](#mariko-max-clocks-docked-and-plugged-hac-001-01-heg-001)
    - [Switch Lite Max Clocks Plugged](#switch-lite-max-clocks-plugged-hdh-001)
-8. [Troubleshooting](#troubleshooting)
+- [Troubleshooting](#troubleshooting)
+- [How to test stability](https://rentry.co/howtoteststability)
 
 ---
 
@@ -61,7 +62,7 @@
 1. Boot Hekate.
 2. Go to Console Info > HW & Fuses.
 3. Note your DRAM ID, CPU Speedo 0, CPU Speedo 2, and SoC Speedo.
-   - Speedos typically range from 1450 to 1750. A higher speedo means less voltage is needed for the same clock speed. A speedo of 1650 is generally considered good.
+   - Speedos typically range from 1450 to 1810. A higher speedo means less voltage is needed for the same clock speed. A speedo of 1650 is generally considered good.
 
 ---
 
@@ -93,32 +94,28 @@
 - **Undervolt Mode:** 2
 - **Vmin:** AUTO (0)
 - **Vmax:** 800mv
-- **Speedo:** (Input your value from HW & Fuses)
 - **Voltage Offset:** 0 (Test 5, 10, or 15 with UV2, but check stability first)
 
 ## RAM Settings:
 - **DRAM Timing:**
   - 0: AUTO_ADJ: Auto adjust mtc table with LPDDR4 3733 Mbps specs, 16Gb density. Change timing with Advanced Config (Default)
-  - 1: ~~AUTO_ADJ_LV: Less tight timings. It can help achieve higher frequencies or lower voltages.~~
-  - 2: ~~AUTO_ADJ_LV_HP: LV mode with slightly tighter timings~~
-  - 3: NO_ADJ: Use 1600 mtc table without adjusting (Timing becomes tighter if you raise dram clock).
+  - 1: AUTO_ADJ_HP: Same as AUTO_ADJ with ram power down disabled.
 
-  - **Recommended:** AUTO_ADJ
+  - **Recommended:** AUTO_ADJ_HP due better latency.
 
 - **DVB Shift:** 1-4 (Boosting the SoC voltage helps stabilize RAM, especially at high frequencies like 2400MHz+).
-- **HP mode:** 1
 
 ### RAM Configuration Based on Tier
 
 | Tier | RAM ID   | Ram Clock | VDD2  | VDDQ  | Timings (Common)          | Timings (ST)              |
 |------|----------|-----------|-------|-------|---------------------------|---------------------------|
-| GOD  | NEI/NEE  | 2500-2900 | 1175mv| 640mv | (3-3-2) 2-5-5-4-6      | (4-4-4) 3-7-6-5-6      |
+| GOD  | NEI/NEE  | 2500-2933 | 1175mv| 640mv | (3-3-2) 2-5-5-4-6      | (4-4-4) 3-7-6-5-6      |
 | GOD  | WT:B     | 2466-2600 | 1175mv| 600mv | (4-4-5) 5-2-6-5-6      | (6-6-7) 7-2-6-5-6      |
-| S    | AA-MGCL/MGCR  | 2300-2566 | 1175mv| 640mv | (4-4-5) 5-5-6-7-6      | (4-4-8) 6-5-7-8-6      |
-| A    | WT:F     | 2400-2566 | 1175mv| 600mv | (4-4-2) 5-4-6-3-6      | (5-5-4) 6-5-6-3-6      |
-| B    | AM-MGCJ  | 2300-2466 | 1175mv| 640mv | (2-2-4) 3-4-4-4-6     | (4-3-7) 3-5-4-4-6       |
-| B    | WT:E     | 2300-2466 | 1175mv| 600mv | (2-2-2) 5-4-5-2-6     | (3-3-2) 5-4-6-2-6      |
-| C    | AB-MGCL  | 2133-2433 | 1175mv| 640mv | (4-4-4) 4-4-5-6-6      | (4-4-5) 5-5-6-6-6      |
+| S    | AA-MGCL/MGCR  | 2300-2600 | 1175mv| 640mv | (4-4-5) 5-5-6-7-6      | (4-4-8) 6-5-7-8-6      |
+| A    | WT:F     | 2400-2533 | 1175mv| 600mv | (4-4-2) 5-4-6-3-6      | (5-5-4) 5-5-6-5-6      |
+| B    | AM-MGCJ  | 2300-2466 | 1175mv| 640mv | (3-2-4) 2-4-4-4-6     | ((4-3-8) 2-5-4-4-6       |
+| B    | WT:E     | 2300-2466 | 1175mv| 600mv | (2-2-2) 2-4-4-4-6     | (3-5-3) 3-5-4-5-6      |
+| C    | AB-MGCL  | 2133-2500 | 1175mv| 640mv | (4-4-4) 4-4-5-6-6      | (4-4-8) 5-5-6-8-6      |
 | D    | NME      | 2133-2333 | 1175mv| 640mv | (2-2-1) 0-1-4-3-6     | (3-3-4) 0-1-4-4-6      |
 
 ---
