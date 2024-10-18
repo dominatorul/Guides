@@ -5,20 +5,20 @@
 ---
 
 ## Table of Contents
-1. [Safety Disclaimer](#safety-disclaimer)
-2. [Erista Limits](#erista-limits)
-3. [Monitoring Your Switch](#monitoring-your-switch)
-4. [Checking Speedo and RAM Type](#checking-speedo-and-ram-type)
-5. [RAM Types](#ram-types)
-6. [OC Settings for Switchcraft](#oc-settings-for-switchcraft)
+- [Safety Disclaimer](#safety-disclaimer)
+- [Erista Limits](#erista-limits)
+- [Monitoring Your Switch](#monitoring-your-switch)
+- [Checking Speedo and RAM Type](#checking-speedo-and-ram-type)
+- [RAM Types](#ram-types)
+- [OC Settings for Switchcraft](#oc-settings-for-switchcraft)
    - [CPU Settings](#cpu-settings)
    - [GPU Settings](#gpu-settings)
    - [RAM Settings](#ram-settings)
-7. [Clock Settings](#clock-settings)
+- [Clock Settings](#clock-settings)
    - [Erista Max Plugged](#erista-max-plugged-hac-001-01-heg-001)
    - [Erista Max Safe Clocks on Battery](#erista-max-safe-clocks-on-battery-hdh-001)
-8. [Troubleshooting & Advice](#troubleshooting)
-
+- [Troubleshooting & Advice](#troubleshooting)
+- [How to test stability](https://rentry.co/howtoteststability)
 ---
 
 ## Safety Disclaimer
@@ -81,22 +81,18 @@ There are various RAM types for Erista, and better types can reach higher clocks
 - **Vmin:** 740-780mv
 - **Voltage Offset:** 0-30
 !!!note If you want to safely use 998Mhz gpu, you need to keep gpu volt under 950 (slightly differs depending on iddq and temperature)
-### RAM Settings
+## RAM Settings:
 - **DRAM Timing:**
   - 0: AUTO_ADJ: Auto adjust mtc table with LPDDR4 3733 Mbps specs, 16Gb density. Change timing with Advanced Config (Default)
-  - 1: ~~AUTO_ADJ_LV: Less tight timings. It can help achieve higher frequencies or lower voltages.~~
-  - 2: ~~AUTO_ADJ_LV_HP: LV mode with slightly tighter timings~~
-  - 3: NO_ADJ: Use 1600 mtc table without adjusting (Timing becomes tighter if you raise dram clock).
+  - 1: AUTO_ADJ_HP: Same as AUTO_ADJ with ram power down disabled.
 
-  - **Recommended:** AUTO_ADJ
+  - **Recommended:** AUTO_ADJ_HP due better latency.
 
-- **DVB Shift:** 1-4 (Boosting the SoC voltage helps stabilize RAM, especially at high frequencies like 1996MHz+).
-
-#### Samsung MGHC
+- **DVB Shift:** 1-4 (Boosting the SoC voltage helps stabilize RAM, especially at high frequencies like 2400MHz+).
+#### Samsung MGCH
 - **RAM Clock:** 1862-2133Mhz
 - **VDD2:** 1175mv
-- **Timings:** Common (3-3-2) 0-4-4-3-6 or ST (4-4-4) 1-4-5-3-6 
-- **HP mode:** 1
+- **Timings:** Common (4-4-4) 0-1-5-4-6 or ST (4-5-9) 1-2-6-4-6 
 ---
 
 ## Clock Settings
