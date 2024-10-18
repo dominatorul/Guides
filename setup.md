@@ -36,7 +36,7 @@ In this guide you will learn how to setup EOS and how to use FPS Locker to achie
     - Accept any prompts about overwriting folders.
 
 3. **EOS**
-    - Download the latest `EOS` version from [Github](https://github.com/halop/OC-Switchcraft-EOS/releases/latest) or [this Discord channel](https://discord.com/channels/854839758815363072/1173171845139288114) or [this Discord channel](https://discord.com/channels/763191086117814282/1284930772284997713).
+    - Download the latest `EOS` version from [this link](https://github.com/halop/OC-Switchcraft-EOS/releases/latest) 
     - Extract the archive.
     - Open the `copy_to_SD` folder.
     - Copy its contents to the root of your SD card.
