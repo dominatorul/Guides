@@ -146,7 +146,7 @@ dmnt_always_save_cheat_toggles = u8!0x1
 3. **Open OC Switchcraft EOS Overlay:**
 	- Open `Ultrahand`
 	- Press `D-pad right` and click on `OC Switchcraft EOS`
-
+- In case this doesn't appear, fix [archive bit](#fixing-archive-bit)
 4. **Tweak the settings of the KIP inside OC Switchcraft EOS Overlay:**
 	- Follow those guides based on your configuration to do proper overclocking.
 
