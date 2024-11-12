@@ -89,6 +89,10 @@ dmnt_cheats_enabled_by_default = u8!0x0
 ; 0 = only save toggles if toggle file exists.
 dmnt_always_save_cheat_toggles = u8!0x1
 ```
+10. **(Optional) NX-FanControl**
+
+   - 📥 Download from [this link](https://github.com/Zathawo/NX-FanControl/releases/latest)
+   - Copy the `atmosphere` and `switch` folders to the root of your SD card.
 
 ---
 
