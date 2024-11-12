@@ -25,10 +25,17 @@ Welcome! In this guide, you’ll set up **EOS** and **FPS Locker** to boost perf
 
 ### 🎬 Before You Start
 
-Make sure to **install the latest versions** of the following essential tools:
+🛠**Install the latest versions** of the following essential tools:
 
 - **[Atmosphere](https://github.com/Atmosphere-NX/Atmosphere/releases/)** - the custom firmware you’ll be using.  
 - **[Hekate](https://github.com/CTCaer/hekate/releases/latest)** - includes USB Mass Storage (UMS) mode.
+
+🛠 **Back Up eMMC or emuMMC in Hekate**
+
+1. Open `Hekate` and navigate to the `Tools` section then `backup eMMC`.
+2. To back up `emuMMC`, enable the option for `SD emuMMC Raw Partition`.
+3. Create a backup of `emuMMC BOOT0` and `BOOT1`.
+4. Back up the `emuMMC RAW GPP` partition.
 
 !!!note Remember to [**fix the archive bit**](#fixing-archive-bit) after using UMS.
 
