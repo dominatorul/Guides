@@ -34,15 +34,15 @@ Welcome! In this guide, you’ll set up **EOS** and **FPS Locker** to boost perf
 🛠 **Back Up eMMC using Hekate**
 
 1. Open `Hekate` and navigate to the `Tools` section, then select `Backup eMMC`.
-2. Create a backup of `emuMMC BOOT0` and `BOOT1`.
-3. Back up the `emuMMC RAW GPP` partition.
+2. Create a backup of `eMMC BOOT0 & BOOT1`.
+3. Back up the `eMMC RAW GPP` partition.
 
 🛠 **Back Up emuMMC using Hekate**
 
 1. Open `Hekate` and navigate to the `Tools` section, then select `Backup eMMC`.
-2. To back up `emuMMC`, enable the option for `SD emuMMC Raw Partition`.
-3. Create a backup of `emuMMC BOOT0` and `BOOT1`.
-4. Back up the `emuMMC RAW GPP` partition.
+2. To back up `emuMMC`, enable the option for `SD emuMMC Raw Partition` .
+3. Create a backup of `SD emuMMC BOOT0 & BOOT1`.
+4. Back up the `SD emuMMC RAW GPP` partition.
 
 A `backup` folder will now be created in the root of your SD card. Copy the folder to your PC for safekeeping, then delete it from the root of your microSD card to free up space. Be sure to store the folder safely.
 
