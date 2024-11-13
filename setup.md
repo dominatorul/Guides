@@ -87,7 +87,7 @@ Follow these steps to download and install the necessary tools on your SD card:
 8. **hekate-ipl**
    - Add the line `kip1=atmosphere/kips/*` to to your boot entry from `bootloader/hekate_ipl.ini` file on your SD card.
 
-!!!note If you’re unfamiliar with how to edit the `hekate_ipl.ini`, you can download a [sample file](https://github.com/user-attachments/files/17683638/copy_to_SD.zip), and copy its contents to the SD card root. ***Note: This will override your current launch menu.***
+!!!note If you’re unfamiliar with how to edit the `hekate_ipl.ini`, you can download a [sample file](https://github.com/user-attachments/files/17683638/copy_to_SD.zip), open the `copy_to_SD` folder and copy its contents to the root of your SD card ***Note: This will override your current launch menu.***
 
 9. **(Optional) EdiZon Overlay**
    - 📥 Download from [this link](https://github.com/ppkantorski/EdiZon-Overlay/releases/latest).
