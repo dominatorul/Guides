@@ -19,6 +19,9 @@ This repository is a backup of switch oc guides.
   A guide on testing the stability of performance and hardware settings.  
   Backup of: [https://rentry.co/howtoteststability](https://rentry.co/howtoteststability)
 
+- **Ultracam**  
+  A guide on using ultracam benchmark.  
+  Backup of: [https://rentry.co/ultracam](https://rentry.co/ultracam)
 ## How to Use
 
 To access the guides:
