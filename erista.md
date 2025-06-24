@@ -35,10 +35,14 @@
 
 ### Erista GPU Limits:
 - The Erista GPU limit of 15A is reached at 921MHz without GPU UV with moderate speedos.
-!!! danger **Be extremely careful if you disable GPU scheduling. This will hit the PMIC limit very hard!**
 
 ### Charger IC Limit:
 - 18W limit restricts overclocking for Erista units. This is the main limiting factor, but the PMIC current limits for CPU and GPU will be reached first.
+
+### GPU Scheduling:
+- **On:** Caps gpu usage at ~96.7%
+- **Off:** Caps gpu usage at  ~99.7%
+!!! danger  ** Warning:** Disabling GPU Scheduling will slightly increase power draw. Use it with caution.
 
 ---
 
@@ -90,10 +94,16 @@ There are various RAM types for Erista, and better types can reach higher clocks
 
 - **DVB Shift:** 1-4 (Boosting the SoC voltage helps stabilize RAM, especially at high frequencies like 2400MHz+).
 #### Samsung MGCH
-- **RAM Clock:** 1862-2133Mhz
-- **VDD2:** 1175mv
-- **Timings:** Common (4-4-4) 0-1-5-4-6 or ST (4-5-9) 1-2-6-4-6 
----
+- **RAM Clock:** 1862-2246Mhz
+- **VDD2:** 1175–1237 mV (The module is rated for 1175 mV. You can overvolt slightly if you want, since 1237 mV is allowed in L4T, so it's assumed to be safe.)
+- **Timings:** Common (4-4-4) 0-1-5-4-6 or ST(Super tight) (4-5-9) 1-2-6-4-6. Super Tight timings provide enhanced performance over the common timings.
+
+To find your maximum frequency, start by setting DVB to 2 using the common preset. Next, test ST. If ST fails, incrementally increase the timings one by one in this order: t8, t1, t2, t3, t6, t7, t4 and t5. Be sure to test each timing adjustment individually. If you want to go beyond ST timings, apply the same methodology as described above.
+
+Super Tight timings provide enhanced performance over the common timings.
+!!! note **Note**: Lower T5 or T6 or T3 in case you have issues.
+!!! note RAM delivers the most performance, so prioritize finding your maximum frequency first.
+
 
 ## Clock Settings
 
@@ -116,3 +126,7 @@ There are various RAM types for Erista, and better types can reach higher clocks
 **My Switch won't boot into EMUNAND after I have installed SWITCHCRAFT:**
 - Your atmosphere version is likely not up-to-date, update your atmosphere version.
 - CPU UV level is too high, lower it or set it to 0.
+
+# Need Help with Setup?
+
+###Follow this [guide](https://rentry.co/howtoget60fps) for a step-by-step setup.
