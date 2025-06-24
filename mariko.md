@@ -24,7 +24,7 @@
 
 ---
 
-## Safety Disclaimer
+# Safety Disclaimer
 !!! info ** Overclocking is inherently risky as it pushes the system beyond its original design. The risk level depends on how much you overclock and whether you stay within the limits of the chip and hardware.**
 
 !!! danger **Unstable RAM overclocking can cause SYSNAND/EMUNAND corruption and SD card corruption, particularly if done on SYSNAND. Test the overclock settings on EMUNAND and back it up before installing Switchcraft.**
@@ -50,13 +50,13 @@
 !!! danger  ** Warning:** Disabling GPU Scheduling will slightly increase power draw. Use it with caution.
 ---
 
-## Monitoring Your Switch
+# Monitoring Your Switch
 - Use status monitor overlay to indicate if you've bypassed the charger IC limit (e.g., -1W displayed while charging).
 - To get the best results, be sure your battery is 10-90% to display the real charging
 
 ---
 
-## Checking Speedo and RAM Type
+# Checking Speedo and RAM Type
 
 1. Boot Hekate.
 2. Go to Console Info > HW & Fuses.
@@ -65,7 +65,7 @@
 
 ---
 
-##  RAM Tiers (Higher is better)
+#  RAM Tiers (Higher is better)
 
 | Tier        | RAM ID           |
 |-------------|------------------|
@@ -80,7 +80,7 @@
 
 # OC Settings for Switchcraft
 
-## CPU Settings:
+## CPU Settings
 - **Boost Clock:**
   - 2400 MHz (Low Speedo or High Freq UV 1-5)
   - 2600 MHz (Speedo > 1650 or High Freq UV 6+)
@@ -91,7 +91,7 @@
 - **Voltage Limit:** 1120mv (safe), 1160mv (use with caution)
 - **Table Config:** AUTO 
 
-## GPU Settings:
+## GPU Settings
 - **Undervolt Mode:** 2
 - **DVFS:** 2(hijack method) or 1(official service method). Use 1 only in case you have issues since 2 should provide the lowest value possible.
 - **Vmin:** 550-620mv(you shouldn't bother with this, as you MUST use always max ram)
@@ -99,7 +99,7 @@
 - **Vmax:** 800mv
 - **Voltage Offset:** 5-15 (Test 5, 10, or 15 with UV2, but check stability first. Some gpu must use 0.)
 
-## RAM Settings:
+## RAM Settings
 - **DRAM Timing:**
   - 0: AUTO_ADJ: Auto adjust mtc table with LPDDR4 3733 Mbps specs, 16Gb density. Change timing with Advanced Config (Default)
   - 1: AUTO_ADJ_HP: Same as AUTO_ADJ with ram power down disabled.
