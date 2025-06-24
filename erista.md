@@ -49,10 +49,10 @@
 
 #Monitoring Your Switch
 - Use status monitor overlay to indicate if you've bypassed the charger IC limit (e.g., -1W displayed while charging).
-- To get the best results, be sure your battery is 10-90% to display the real charging
+- To get the best results, be sure your battery is 10-90% to display the real charging.
 - If the battery is above 90%, power drawn from the charger gets reduced.
-- A slight negative power draw (roughly -0.1W) is fine if the battery is above 90%
-- A higher negative power draw (~-0.5W) is not safe
+- A slight negative power draw (roughly -0.1W) is fine if the battery is above 90%.
+- A higher negative power draw (~-0.5W) is not safe.
 - For accurate results, test with a lower battery.
 
 ---
@@ -101,7 +101,7 @@ Almost all Erista units have Samsung MGCH RAM. Hynix NLE and Micron WT:C are rar
 
 - **DVB Shift:** 1-4 (Boosting the SoC voltage helps stabilize RAM, especially at high frequencies like 2400MHz+).
 #### Samsung MGCH
-- **RAM Clock:** 1862-2133Mhz (Very good bins may reach slightly higher clocks, clocks up to 2246Mhz are potentially possible with overvolting)
+- **RAM Clock:** 1862-2133Mhz (Very good bins may reach slightly higher clocks, clocks up to 2246Mhz are potentially possible with overvolting.)
 - **VDD2:** 1175–1237 mV (The module is rated for 1175 mV. You can overvolt slightly if you want, since 1237 mV is allowed in L4T, so it's assumed to be safe, 1175mV is guaranteed to be safe.)
 - **Timings:** Common (4-4-4) 0-1-5-4-6 or ST(Super tight) (4-5-9) 1-2-6-4-6. Super Tight timings provide enhanced performance over the common timings.
 
@@ -127,12 +127,12 @@ Super Tight timings provide enhanced performance over the common timings.
 
 ---
 
-For stability testing, follow this [guide](https://rentry.co/howtoteststability/)
+For stability testing, follow this [guide](https://rentry.co/howtoteststability/).
 
 #Troubleshooting
 
 **My Switch won't boot into EMUNAND after I have installed SWITCHCRAFT:**
-- Your atmosphere or EOS version is likely not up-to-date, update your atmosphere or eos version.
+- Your atmosphere or EOS version is likely not up-to-date, update your atmosphere or EOS version.
 - CPU UV level is too high, lower it or set it to 0.
 
 **My configs are not being applied:**
