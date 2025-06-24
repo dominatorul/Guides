@@ -132,7 +132,7 @@ For stability testing, follow this [guide](https://rentry.co/howtoteststability/
 ## Troubleshooting
 
 **My Switch won't boot into EMUNAND after I have installed SWITCHCRAFT:**
-- Your atmosphere or EOS version is likely not up-to-date, update your atmosphere or eos version.
+- Your atmosphere or EOS version is likely not up-to-date, update your atmosphere or EOS version.
 - CPU UV level is too high, lower it or set it to 0.
 
 **My configs are not being applied:**
