@@ -1,6 +1,6 @@
 # Erista OC Guide
 
-*Made with love by Dominatorul. Some parts of this guide belong to ChanseyIsTheBest.*
+*Made with love by Dominatorul. Some parts of this guide belong to ChanseyIsTheBest and Lightos_*
 
 ---
 
@@ -21,7 +21,7 @@
 - [How to test stability](https://rentry.co/howtoteststability)
 ---
 
-## Safety Disclaimer
+# Safety Disclaimer
 !!! info **All overclocking is unsafe as you are pushing the system outside of its original design, however the level of risk is dependent on how much you overclock and stay within the limits of the chip and the hardware.**
 
 !!! danger **Unstable RAM overclocking can cause SYSNAND/EMUNAND corruption and SD card corruption, particularly if done on SYSNAND. Test the overclock settings on EMUNAND and back it up before installing Switchcraft.**
@@ -47,17 +47,17 @@
 
 ---
 
-## Monitoring Your Switch
+#Monitoring Your Switch
 - Use status monitor overlay to indicate if you've bypassed the charger IC limit (e.g., -1W displayed while charging).
 - To get the best results, be sure your battery is 10-90% to display the real charging
-    - If the battery is above 90%, power drawn from the charger gets reduced.
-    - A slight negative power draw (roughly -0.1W) is fine if the battery is above 90%
-    - A higher negative power draw (~-0.5W) is not safe
-    - For accurate results, test with a lower battery.
+- If the battery is above 90%, power drawn from the charger gets reduced.
+- A slight negative power draw (roughly -0.1W) is fine if the battery is above 90%
+- A higher negative power draw (~-0.5W) is not safe
+- For accurate results, test with a lower battery.
 
 ---
 
-## Checking Speedo and RAM Type
+#Checking Speedo and RAM Type
 
 1. Boot Hekate.
 2. Go to Console Info > HW & Fuses.
@@ -67,7 +67,7 @@ CPU/GPU Speedos range from approximately 1980 to 2200, with SoC speedos ranging 
 
 ---
 
-## RAM Types
+#RAM Types
 
 There are various RAM types for Erista, and better types can reach higher clocks, require lower voltages, and support tighter timings at the same clocks compared to worse types. Not only do RAM types matter, but RAM bin matters, meaning that worse RAM types can outperform higher RAM types. Here are some RAM types:
 
@@ -79,7 +79,7 @@ Almost all Erista units have Samsung MGCH RAM. Hynix NLE and Micron WT:C are rar
 
 ---
 
-## OC Settings for Switchcraft
+# OC Settings for Switchcraft
 
 ### CPU Settings
 - **Boost Clock:** 2091MHz if you use UV3, otherwise use 1785MHz
@@ -92,7 +92,7 @@ Almost all Erista units have Samsung MGCH RAM. Hynix NLE and Micron WT:C are rar
 - **Vmin:** 740-780mv
 - **Voltage Offset:** 0-30
 !!!note If you want to safely use 998Mhz gpu, you need to keep gpu volt under 950 (slightly differs depending on iddq and temperature)
-## RAM Settings:
+## RAM Settings
 - **DRAM Timing:**
   - 0: AUTO_ADJ: Auto adjust mtc table with LPDDR4 3733 Mbps specs, 16Gb density. Change timing with Advanced Config (Default)
   - 1: AUTO_ADJ_HP: Same as AUTO_ADJ with ram power down disabled.
@@ -111,7 +111,7 @@ Super Tight timings provide enhanced performance over the common timings.
 !!! note RAM delivers the most performance, so prioritize finding your maximum frequency first.
 
 
-## Clock Settings
+# Clock Settings
 
 ### Erista Max Plugged [HAC-001(-01), HEG-001]
 *Switch units available from August 2019 and beyond, includes OLED & requires modchip*
@@ -129,7 +129,7 @@ Super Tight timings provide enhanced performance over the common timings.
 
 For stability testing, follow this [guide](https://rentry.co/howtoteststability/)
 
-## Troubleshooting
+#Troubleshooting
 
 **My Switch won't boot into EMUNAND after I have installed SWITCHCRAFT:**
 - Your atmosphere or EOS version is likely not up-to-date, update your atmosphere or eos version.
