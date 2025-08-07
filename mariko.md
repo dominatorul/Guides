@@ -104,7 +104,9 @@
   - 0: AUTO_ADJ: Auto adjust mtc table with LPDDR4 3733 Mbps specs, 16Gb density. Change timing with Advanced Config (Default)
   - 1: AUTO_ADJ_HP: Same as AUTO_ADJ with ram power down disabled.
 
-  - **Recommended:** AUTO_ADJ_HP due better latency.
+  - AUTO_ADJ_HP has improved latency, but there is a small chance that you ram module can't handle it well. (Timings have to be dropped or frequencies need to be lowered)
+  Therefore it's recommended to find your maximum ram clocks and timings with AUTO_ADJ and then try AUTO_ADJ_HP afterwards.
+  If it's stable, use it, otherwise stick with AUTO_ADJ.
 
 - **DVB Shift:** 1-5 (Boosting the SoC voltage helps stabilize RAM, especially at high frequencies like 2400MHz+).
 
@@ -128,6 +130,8 @@ To find your maximum frequency, start by setting DVB to 4 using the common prese
 Super Tight timings provide enhanced performance over the common timings.
 !!! note **Note**: Lower T5 or T6 in case you have issues.
 !!! note RAM delivers the most performance, so prioritize finding your maximum frequency first.
+!!! note In rare cases, it's possible that the module cannot do common timings properly.
+Lower timings if you notice that your ram module performs worse than it should according to the tier list.
 
 # Clock Settings(Safe)
 
@@ -169,6 +173,15 @@ Super Tight timings provide enhanced performance over the common timings.
 
 - Your atmosphere version is likely not up-to-date, update your atmosphere version.
 - CPU UV level is too high, lower it or set it to 0.
+
+**My configs are not being applied:**
+- Ensure you reboot your console after changing settings in SWITCHCRAFT.
+
+**I can't set my clocks above 1785/921/1600:**
+- Your kip is not being loaded, check if it is located in `/atmosphere/kips`
+- Your hekate_ipl.ini file is not set up correctly:
+   - Validate that your boot entry contains `kip1=atmosphere/kips/loader.kip`
+   - It has to be below `pkg3=atmosphere/package3` (or fss0)
 
 # Need Help with Setup?
 

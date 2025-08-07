@@ -97,9 +97,12 @@ Almost all Erista units have Samsung MGCH RAM. Hynix NLE and Micron WT:C are rar
   - 0: AUTO_ADJ: Auto adjust mtc table with LPDDR4 3733 Mbps specs, 16Gb density. Change timing with Advanced Config (Default)
   - 1: AUTO_ADJ_HP: Same as AUTO_ADJ with ram power down disabled.
 
-  - **Recommended:** AUTO_ADJ_HP due better latency.
+  - AUTO_ADJ_HP has improved latency, but some ram modules cannot handle it well, especially on erista. (Timings have to be dropped or frequencies need to be lowered)
+  Therefore it's recommended to find your maximum ram clocks and timings with AUTO_ADJ and then try AUTO_ADJ_HP afterwards.
+  If it's stable, use it, otherwise stick with AUTO_ADJ.
 
-- **DVB Shift:** 1-4 (Boosting the SoC voltage helps stabilize RAM, especially at high frequencies like 2400MHz+).
+- **DVB Shift:** 1-5 (Boosting the SoC voltage helps stabilize RAM).
+Most of the time, a DVB shift of 2 will be enough.
 #### Samsung MGCH
 - **RAM Clock:** 1862-2133Mhz (Very good bins may reach slightly higher clocks, clocks up to 2246Mhz are potentially possible with overvolting.)
 - **VDD2:** 1175–1237 mV (The module is rated for 1175 mV. You can overvolt slightly if you want, since 1237 mV is allowed in L4T, so it's assumed to be safe, 1175mV is guaranteed to be safe.)
@@ -137,6 +140,12 @@ For stability testing, follow this [guide](https://rentry.co/howtoteststability/
 
 **My configs are not being applied:**
 - Ensure you reboot your console after changing settings in SWITCHCRAFT.
+
+**I can't set my clocks above 1785/921/1600:**
+- Your kip is not being loaded, check if it is located in `/atmosphere/kips`
+- Your hekate_ipl.ini file is not set up correctly:
+   - Validate that your boot entry contains `kip1=atmosphere/kips/loader.kip`
+   - It has to be below `pkg3=atmosphere/package3` (or fss0)
 
 # Need Help with Setup?
 
