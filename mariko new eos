@@ -121,16 +121,16 @@ There’s no benefit in using a base‑latency setting other than 1866 or 1600. 
 |  C   | WT : F              | 2633-2800            | 1175 mV| 600 mV | (4‑4‑2) 5‑4‑6‑3‑6     | (5‑5‑4) 5‑5‑6‑5‑6          |
 |  D   | AB‑MGCL             | 2500            | 1175 mV| 640 mV | (4‑4‑4) 4‑4‑5‑6‑6     | (4‑4‑8) 5‑5‑6‑8‑6          |
 
-> **⚠️ Note**  
+> **⚠️ Note**
 > Since the update hasn’t been released yet, this cannot be confirmed.
 
-> ### 🔋 Voltage & Timing Advice  
-> Higher voltage enables tighter timings, so slight overvolting is **advised**.  
+> ### 🔋 Voltage & Timing Advice
+> Higher voltage enables tighter timings, so slight overvolting is **advised**.
 > Using **1212.5 mV** will allow you to use very tight timings at high freq.
 
-> ### ℹ️ Manufacturer’s Safe Limit  
-> - **1175 mV** is the absolute safe value guaranteed by the manufacturer.  
-> - Above this level, nothing is guaranteed—silicon quality may vary.  
+> ### ℹ️ Manufacturer’s Safe Limit
+> - **1175 mV** is the absolute safe value guaranteed by the manufacturer.
+> - Above this level, nothing is guaranteed—silicon quality may vary.
 > - No damage from overvolting has been reported, but proceed at your own risk.
 
 ### 1600 Base Latency Tier List(The old SC base latency)

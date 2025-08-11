@@ -36,7 +36,7 @@ In this guide you will learn how to setup EOS and how to use FPS Locker to achie
     - Accept any prompts about overwriting folders.
 
 3. **EOS**
-    - Download the latest `EOS` version from [this link](https://github.com/halop/OC-Switchcraft-EOS/releases/latest) 
+    - Download the latest `EOS` version from [this link](https://github.com/halop/OC-Switchcraft-EOS/releases/latest)
     - Extract the archive.
     - Open the `copy_to_SD` folder.
     - Copy its contents to the root of your SD card.
@@ -133,10 +133,10 @@ dmnt_always_save_cheat_toggles = u8!0x1
 
 0. **Check HW and Fuses:**
 	- Boot `Hekate`.
-	- Go to Console Info - HW & Fuses. 
+	- Go to Console Info - HW & Fuses.
 	- Note your DRAM ID, CPU Speedo 0, CPU Speedo 2, and SoC Speedo.
 
-1. **Launch CFW:** 
+1. **Launch CFW:**
     - Launch CFW on your switch.
 
 2. **Accessing Overlays:**
@@ -203,7 +203,7 @@ Miscellaneous Settings:
 
 ###Using EdiZon
 0. Download cheats. Launch `All-in-One Switch Updater` from the `hbmenu`. Move to `Download cheats` on the left panel, then select `Download GBAtemp.net cheat archive (ver xxxxxxxx)` from the right panel (this will only download cheats for the titles you have installed. If you want to download all available cheats you can select `Download GBAtemp.net cheat codes`).
-1. Launch a game and open `Ultrahand`. Select `EdiZon`. Click on `Cheats`. 
+1. Launch a game and open `Ultrahand`. Select `EdiZon`. Click on `Cheats`.
 2. Enable and disable cheats by pressing A, a cheat is enabled if it says 'On'. Sometimes cheats may require turning them on and off for them to work. Ensure you disable cheats you are not using i.e. disable the 30FPS cheat if using the 60FPS cheat or disable the 720p cheat if using a 1080p cheat.
 
 ### Troubleshooting and Further Information
