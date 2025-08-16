@@ -89,7 +89,7 @@
 - **Low Freq Vmin:** 590mv
 - **High Freq Vmin:** 720-750mv (Test for lower values if your CPU bin is good)
 - **Voltage Limit:** 1120mv (safe), 1160mv (use with caution)
-- **Table Config:** AUTO 
+- **Table Config:** AUTO
 
 ## GPU Settings
 - **Undervolt Mode:** 2

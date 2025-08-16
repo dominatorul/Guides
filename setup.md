@@ -17,9 +17,9 @@ Made with love by dominatorul
 - [⚠️ Troubleshooting and Further Information](#troubleshooting-and-further-information)
 - [❓ Frequently Asked Questions](#frequently-asked-questions)
 - [🙏 Credits](#credits)
-- **Extra Settings**  
-   - [Mariko (Oled, Lite, V2) Guide](https://rentry.co/mariko)  
-   - [Erista (V1) Guide](https://rentry.co/erista)  
+- **Extra Settings**
+   - [Mariko (Oled, Lite, V2) Guide](https://rentry.co/mariko)
+   - [Erista (V1) Guide](https://rentry.co/erista)
    - [Testing Stability](https://rentry.co/howtoteststability)
 
 ---
@@ -71,7 +71,7 @@ If you prefer to understand what's included and how to install everything manual
    - 📥 Download from [this link](https://github.com/ppkantorski/nx-ovlloader/releases).
    - Copy the `atmosphere` folder to the root of your SD card.
 
-3. **EOS** 
+3. **EOS**
    - 📥 Download from [this link](https://github.com/halop/OC-Switchcraft-EOS/releases/latest).
     - Open the `copy_to_SD` folder.
     - Copy its contents to the root of your SD card.
@@ -130,10 +130,10 @@ After booting `Hekate`, navigate to **Tools** > **Arch Bit • RCM • Touch •
 
 ### ⚙️ Setting Up the KIP
 
-0. **Check Console Info**  
+0. **Check Console Info**
    - Boot into Hekate, and go to Console Info - HW & Fuses. Record the **DRAM ID, CPU Speedo 0, CPU Speedo 2,** and **SoC Speedo.**
 
-1. **Launch CFW**  
+1. **Launch CFW**
    - Launch the custom firmware (CFW) on your console.
 
 2. **Accessing Overlays:**
@@ -145,11 +145,11 @@ After booting `Hekate`, navigate to **Tools** > **Arch Bit • RCM • Touch •
 	- Press `D-pad right` and click on `OC Switchcraft EOS`
 - In case this doesn't appear, fix [archive bit](#fixing-archive-bit)
 
-4. **Adjust KIP Settings**  
+4. **Adjust KIP Settings**
    - Use the appropriate settings based on your console configuration:
      - [Mariko (Oled, Lite, V2) Guide](https://rentry.co/mariko)
      - [Erista (V1) Guide](https://rentry.co/erista)
-   
+
 !!!note Restart your console after changing KIP settings to apply them.
 
 !!!danger If you notice RAM artifacts, hold down the power button to shut down and prevent corruption, then reduce some timings.
@@ -162,7 +162,7 @@ Check your settings’ stability here: [How to test stability](https://rentry.co
 - Open `Ultrahand` and select `sys-clk`.
 - Enable `sys-clk` and adjust the settings by pressing on `Edit app profile` or `Edit global profile` for desired performance.
 - It's recommended to set the maximum RAM setting in the global profile override for significant performance gains without substantial power draw. Ensure to test RAM stability first (refer to the settings guide for instructions).
-  
+
 Miscellaneous Settings:
 - `Uncapped Clocks`: Removes clock cappings	. Turn this ON.
 - `Override Boost Mode`: Overrides official boost mode with user set profile clocks. Turn this OFF.
@@ -210,7 +210,7 @@ Visit the [FPSLocker Warehouse](https://github.com/masagrator/FPSLocker-Warehous
 ### 🎚 Using EdiZon
 
 0. Download cheats. Launch `All-in-One Switch Updater` from the `hbmenu`. Move to `Download cheats` on the left panel, then select `Download GBAtemp.net cheat archive (ver xxxxxxxx)` from the right panel (this will only download cheats for the titles you have installed. If you want to download all available cheats you can select `Download GBAtemp.net cheat codes`).
-1. Launch a game and open `Ultrahand`. Select `EdiZon`. Click on `Cheats`. 
+1. Launch a game and open `Ultrahand`. Select `EdiZon`. Click on `Cheats`.
 2. Enable and disable cheats by pressing A, a cheat is enabled if it says 'On'. Sometimes cheats may require turning them on and off for them to work. Ensure you disable cheats you are not using i.e. disable the 30FPS cheat if using the 60FPS cheat or disable the 720p cheat if using a 1080p cheat.
 
 ---
@@ -225,37 +225,37 @@ Visit the [FPSLocker Warehouse](https://github.com/masagrator/FPSLocker-Warehous
 Update Atmosphere or set CPU UV level to 0.
 
 ---
-### ❓ Frequently Asked Questions  
+### ❓ Frequently Asked Questions
 
-#### Sys-clk Doesn’t Allow More Than 1785/921/1600  
-This issue usually occurs due to a bad setup of your Hekate entry lines.  
-- Download this [hekate_ipl](https://github.com/user-attachments/files/17683638/copy_to_SD.zip).  
-- Open the `copy_to_SD` folder and copy the `bootloader` folder to the root of your SD card.  
-**Note:** This will override your current launch menu.  
+#### Sys-clk Doesn’t Allow More Than 1785/921/1600
+This issue usually occurs due to a bad setup of your Hekate entry lines.
+- Download this [hekate_ipl](https://github.com/user-attachments/files/17683638/copy_to_SD.zip).
+- Open the `copy_to_SD` folder and copy the `bootloader` folder to the root of your SD card.
+**Note:** This will override your current launch menu.
 
-#### Sys-clk Displays a Different RAM Frequency Than Set in the Toolkit  
-This issue usually occurs because the system wasn't restarted to apply the changes.  
-- Restart your device.  
-- Open Sys-clk again and check the results.  
+#### Sys-clk Displays a Different RAM Frequency Than Set in the Toolkit
+This issue usually occurs because the system wasn't restarted to apply the changes.
+- Restart your device.
+- Open Sys-clk again and check the results.
 
-#### My Game Runs at 2x Speed/The FPS Is Still Capped at 30 FPS  
-This happens when the FPS is unlocked, but the game engine isn’t designed for it. You need a patch:  
-- Open `Ultrahand`, click on `FPSLocker`, then go to `Advanced Settings`.  
-- Select `Check/Download Config File`, wait for it to complete, then choose `Convert Config to Patch`.  
-- Restart the game and set the FPS target to 60 in `FPSLocker`.  
+#### My Game Runs at 2x Speed/The FPS Is Still Capped at 30 FPS
+This happens when the FPS is unlocked, but the game engine isn’t designed for it. You need a patch:
+- Open `Ultrahand`, click on `FPSLocker`, then go to `Advanced Settings`.
+- Select `Check/Download Config File`, wait for it to complete, then choose `Convert Config to Patch`.
+- Restart the game and set the FPS target to 60 in `FPSLocker`.
 
-#### Cheats Don’t Display  
-Ensure your game build ID matches the cheat one. Update or downgrade your game to a compatible version.  
+#### Cheats Don’t Display
+Ensure your game build ID matches the cheat one. Update or downgrade your game to a compatible version.
 
-#### FPSLocker Patch Doesn’t Show Up Even Though It’s in the Warehouse  
-This can occur if the patch isn’t compatible with your game version. Update or downgrade your game to a compatible version.  
+#### FPSLocker Patch Doesn’t Show Up Even Though It’s in the Warehouse
+This can occur if the patch isn’t compatible with your game version. Update or downgrade your game to a compatible version.
 
-#### What SOC Temperatures Are Safe for the Switch When Docked Under Full Load?  
-Temperatures under 70°C are generally safe. Mariko models are better equipped to handle heat.  
+#### What SOC Temperatures Are Safe for the Switch When Docked Under Full Load?
+Temperatures under 70°C are generally safe. Mariko models are better equipped to handle heat.
 
-#### Power Limits on the Switch  
-- Avoid drawing more than 8.6W in handheld mode; battery draw can be checked in the status monitor.  
-- Undervolt as much as possible to stay within safe limits.  
+#### Power Limits on the Switch
+- Avoid drawing more than 8.6W in handheld mode; battery draw can be checked in the status monitor.
+- Undervolt as much as possible to stay within safe limits.
 
 
 ---
