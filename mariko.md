@@ -44,10 +44,15 @@
 ### Charger IC Limit:
 - 18W limit restricts overclocking for both Erista and Mariko units (12W on Switch Lite). This is the main limiting factor, but the PMIC current limits for CPU and GPU will be reached first.
 
-### GPU Scheduling:
-- **On:** Caps gpu usage at ~96.7%
-- **Off:** Caps gpu usage at  ~99.7%
-!!! danger  ** Warning:** Disabling GPU Scheduling will slightly increase power draw. Use it with caution.
+### GPU Scheduling
+
+This setting adjusts how much of your GPU can be utilized:
+
+- **On:** Limits GPU usage to ~96.7%  
+- **Off:** Limits GPU usage to ~99.7% (up to ~5% performance boost)  
+
+> **Note:** Disabling GPU Scheduling may slightly increase power consumption. Use with caution.
+
 ---
 
 # Monitoring Your Switch
@@ -81,57 +86,97 @@
 # OC Settings for Switchcraft
 
 ## CPU Settings
-- **Boost Clock:**
-  - 2400 MHz (Low Speedo or High Freq UV 1-5)
-  - 2600 MHz (Speedo > 1650 or High Freq UV 6+)
-- **Undervolt Mode:** 1-8(start with 4) (Increase if stable, find your highest stable value. In case console doesn't boot, lower it.)
-- **High Freq UV:** 5-10 (Find your highest stable value). Just a few units can do 11-12, test carefully.
-- **Low Freq Vmin:** 590mv
-- **High Freq Vmin:** 720-750mv (Test for lower values if your CPU bin is good)
-- **Voltage Limit:** 1120mv (safe), 1160mv (use with caution)
-- **Table Config:** AUTO
+
+- **Boost Clock**  
+  - **2397 MHz:** For Speedo <1600 with your max UV level  
+  - **2499 MHz:** For Speedo >1600 with your max UV level  
+  - **2601 MHz:** For Speedo >1650 with your max UV level  
+
+- **Undervolt Mode:** 1–8 (start with 4).  
+  - Increase gradually if stable and find your highest stable value.  
+  - If the console fails to boot, lower the value.  
+
+- **High Freq UV:** 5–10 (find your highest stable value).  
+  - A few rare units may reach 11–12 — test carefully.  
+
+- **Low Freq Vmin:** 590 mV  
+
+- **High Freq Vmin:** 720–750 mV  
+  - Test lower values if your CPU bin is strong.  
+
+- **Voltage Limit:**  
+  - **1120 mV:** Safe  
+  - **1160 mV:** Use with caution  
+
+- **Table Config:** AUTO  
+
+> **ℹ️ Note:** Exceeding the PMIC limit during **Boost Mode** is safe, as it only occurs for short bursts (typically under 30 seconds), preventing long-term hardware stress.  
+
 
 ## GPU Settings
-- **Undervolt Mode:** 2
-- **DVFS:** 2(hijack method) or 1(official service method). Use 1 only in case you have issues since 2 should provide the lowest value possible.
-- **Vmin:** 550-620mv(you shouldn't bother with this, as you MUST use always max ram)
-- **Vmin RAM OC:** AUTO
-- **Vmax:** 800mv
-- **Voltage Offset:** 5-15 (Test 5, 10, or 15 with UV2, but check stability first. Some gpu must use 0.)
+
+- **Undervolt Mode:** 2  
+
+- **DVFS:**  
+  - **2 (Hijack method):** Recommended — provides the lowest value possible.  
+  - **1 (Official service method):** Use only if you encounter issues with mode 2.  
+
+- **Vmin:** 550–620 mV  
+  - Typically not worth adjusting, as you should always use max RAM.  
+
+- **Vmin RAM OC:** AUTO  
+
+- **Vmax:** 800 mV  
+
+- **Voltage Offset:** 5–15  
+  - Test with 5, 10, or 15 when using UV2.  
+  - Some GPUs may require **0** for stability.  
+
 
 ## RAM Settings
-- **DRAM Timing:**
-  - 0: AUTO_ADJ: Auto adjust mtc table with LPDDR4 3733 Mbps specs, 16Gb density. Change timing with Advanced Config (Default)
-  - 1: AUTO_ADJ_HP: Same as AUTO_ADJ with ram power down disabled.
 
-  - AUTO_ADJ_HP has improved latency, but there is a small chance that you ram module can't handle it well. (Timings have to be dropped or frequencies need to be lowered)
-  Therefore it's recommended to find your maximum ram clocks and timings with AUTO_ADJ and then try AUTO_ADJ_HP afterwards.
-  If it's stable, use it, otherwise stick with AUTO_ADJ.
+- **DRAM Timing:**  
+  - **0 — AUTO_ADJ:** Auto-adjust MTC table with LPDDR4 3733 Mbps specs, 16Gb density. Change timing with Advanced Config (Default).  
+  - **1 — AUTO_ADJ_HP:** Same as AUTO_ADJ, but with RAM power-down disabled.  
 
-- **DVB Shift:** 1-5 (Boosting the SoC voltage helps stabilize RAM, especially at high frequencies like 2400MHz+).
+  > **ℹ️ Tip:** AUTO_ADJ_HP improves latency, but some RAM modules may not handle it well.  
+  > - First, find your max RAM clocks and timings with **AUTO_ADJ**.  
+  > - Then test AUTO_ADJ_HP. If stable, use it — otherwise, stick to AUTO_ADJ.  
 
-### RAM Configuration Based on Tier list:
+- **DVB Shift:** 1–5  
+  - Boosts SoC voltage to help stabilize RAM, especially at high frequencies (2400 MHz+).  
 
-| Tier | RAM ID   | Ram Clock | VDD2  | VDDQ  | Common Timings          | Super Tight (ST) Timings     |
-|------|----------|-----------|-------|-------|---------------------------|---------------------------|
-| GOD  | NEI/NEE/x267  | 2500-2933 | 1175mv| 640mv | (3-3-2) 2-5-5-4-6      | (4-4-4) 3-7-6-5-6      |
-| GOD  | WT:B     | 2466-2600 | 1175mv| 600mv | (4-4-5) 5-2-6-5-6      | (6-6-7) 7-2-6-5-6      |
-| S    | AA-MGCL/MGCR  | 2300-2600 | 1175mv| 640mv | (4-4-5) 5-5-6-7-6      | (4-4-8) 6-5-7-8-6      |
-| A    | WT:F     | 2400-2533 | 1175mv| 600mv | (4-4-2) 5-4-6-3-6      | (5-5-4) 5-5-6-5-6      |
-| B    | AM-MGCJ  | 2300-2466 | 1175mv| 640mv | (3-2-4) 2-4-4-4-6     | (4-3-8) 2-5-4-4-6       |
-| B    | WT:E     | 2300-2466 | 1175mv| 600mv | (2-2-2) 2-4-4-4-6     | (3-5-3) 3-5-4-5-6      |
-| C    | AB-MGCL  | 2133-2500 | 1175mv| 640mv | (4-4-4) 4-4-5-6-6      | (4-4-8) 5-5-6-8-6      |
-| D    | NME      | 2133-2333 | 1175mv| 640mv | (2-2-1) 0-1-4-3-6     | (3-3-4) 0-1-4-4-6      |
 
-!!! note If you want to do 66-100mhz more, try 1212.5mv. Also it can help with timings.
+### RAM Configuration Based on Tier List
 
-To find your maximum frequency, start by setting DVB to 4 using the common preset. Next, test ST. If ST fails, incrementally increase the timings one by one in this order: t8, t1, t2, t3, t6, t7, t4 and t5. Be sure to test each timing adjustment individually. If you want to go beyond ST timings, apply the same methodology as described above.
+| Tier | RAM ID       | Ram Clock | VDD2   | VDDQ  | Common Timings           | Super Tight (ST) Timings  |
+|------|--------------|-----------|--------|-------|--------------------------|---------------------------|
+| GOD  | NEI/NEE/x267 | 2500–2933 | 1175 mV| 640 mV| (3-3-2) 2-5-5-4-6        | (4-4-4) 3-7-6-5-6          |
+| GOD  | WT:B         | 2466–2600 | 1175 mV| 600 mV| (4-4-5) 5-2-6-5-6        | (6-6-7) 7-2-6-5-6          |
+| S    | AA-MGCL/MGCR | 2300–2600 | 1175 mV| 640 mV| (4-4-5) 5-5-6-7-6        | (4-4-8) 6-5-7-8-6          |
+| A    | WT:F         | 2400–2533 | 1175 mV| 600 mV| (4-4-2) 5-4-6-3-6        | (5-5-4) 5-5-6-5-6          |
+| B    | AM-MGCJ      | 2300–2466 | 1175 mV| 640 mV| (3-2-4) 2-4-4-4-6        | (4-3-8) 2-5-4-4-6          |
+| B    | WT:E         | 2300–2466 | 1175 mV| 600 mV| (2-2-2) 2-4-4-4-6        | (3-5-3) 3-5-4-5-6          |
+| C    | AB-MGCL      | 2133–2500 | 1175 mV| 640 mV| (4-4-4) 4-4-5-6-6        | (4-4-8) 5-5-6-8-6          |
+| D    | NME          | 2133–2333 | 1175 mV| 640 mV| (2-2-1) 0-1-4-3-6        | (3-3-4) 0-1-4-4-6          |
 
-Super Tight timings provide enhanced performance over the common timings.
-!!! note **Note**: Lower T5 or T6 in case you have issues.
-!!! note RAM delivers the most performance, so prioritize finding your maximum frequency first.
-!!! note In rare cases, it's possible that the module cannot do common timings properly.
-Lower timings if you notice that your ram module performs worse than it should according to the tier list.
+
+### RAM Tuning Notes
+
+> **💡 Extra Headroom:** For an additional 66–100 MHz, try **1212.5 mV**. This can also help with tighter timings.  
+
+> **🧪 Testing Method:**  
+> 1. Start by setting **DVB = 4** using the common preset.  
+> 2. Test **ST (Super Tight) timings**.  
+> 3. If ST fails, relax timings one by one in this order: `t8 → t1 → t2 → t3 → t6 → t7 → t4 → t5`.  
+> 4. For pushing beyond ST, apply the same incremental approach.  
+
+> **⚡ Performance:** ST timings provide enhanced performance over common timings.  
+
+> **⚠️ Stability Notes:**  
+> - Lower **T5** or **T6** if you encounter issues.  
+> - RAM contributes the most to overall performance — prioritize finding your maximum frequency first.  
+> - Rarely, some modules may fail even with common timings. If so, lower timings until stable.  
 
 # Clock Settings(Safe)
 
