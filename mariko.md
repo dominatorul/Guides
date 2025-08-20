@@ -48,10 +48,10 @@
 
 This setting adjusts how much of your GPU can be utilized:
 
-- **On:** Limits GPU usage to ~96.7%  
-- **Off:** Limits GPU usage to ~99.7% (up to ~5% performance boost)  
-
-> **Note:** Disabling GPU Scheduling may slightly increase power consumption. Use with caution.
+- **On:** Limits GPU usage to ~96.7%
+- **Off:** Limits GPU usage to ~99.7% (up to ~5% performance boost)
+- **Recommended:** GPU scheduling **off**.
+!!! danger  ** Warning:** Disabling GPU Scheduling will slightly increase power draw. Use it with caution.
 
 ---
 
@@ -67,6 +67,11 @@ This setting adjusts how much of your GPU can be utilized:
 2. Go to Console Info > HW & Fuses.
 3. Note your DRAM ID, CPU Speedo 0, CPU Speedo 2, and SoC Speedo.
    - Speedos typically range from 1450 to 1810. A higher speedo means less voltage is needed for the same clock speed. A speedo of 1650 is generally considered good.
+
+**Speedo Brackets**
+>  - Speedos are divided into **brackets**.  
+>  - **CPU UV mode** depends on the position within your bracket, but the resulting **voltage** depends on your specific speedo.
+>  - It doesn’t matter how high you can set CPU UV mode — what matters is using your **maximum possible** CPU UV mode.
 
 ---
 
@@ -85,66 +90,66 @@ This setting adjusts how much of your GPU can be utilized:
 
 # OC Settings for Switchcraft
 
-## CPU Settings
+## CPU Setting
 
-- **Boost Clock**  
-  - **2397 MHz:** For Speedo <1600 with your max UV level  
-  - **2499 MHz:** For Speedo >1600 with your max UV level  
-  - **2601 MHz:** For Speedo >1650 with your max UV level  
+- **Boost Clock**
+  - **2397 MHz:** For Speedo <1600
+  - **2499 MHz:** For Speedo >1600
+  - **2601 MHz:** For Speedo >1650
 
-- **Undervolt Mode:** 1–8 (start with 4).  
-  - Increase gradually if stable and find your highest stable value.  
-  - If the console fails to boot, lower the value.  
+- **Undervolt Mode:** 1–8 (start with 4).
+  - Increase gradually if stable and find your highest stable value.
+  - If the console fails to boot, lower the value.
 
-- **High Freq UV:** 5–10 (find your highest stable value).  
-  - A few rare units may reach 11–12 — test carefully.  
+- **High Freq UV:** 5–10 (find your highest stable value).
+  - A few rare units may reach 11–12 — test carefully.
 
-- **Low Freq Vmin:** 590 mV  
+- **Low Freq Vmin:** 590 mV
 
-- **High Freq Vmin:** 720–750 mV  
-  - Test lower values if your CPU bin is strong.  
+- **High Freq Vmin:** 720–750 mV
+  - Test lower values if your CPU bin is strong.
 
-- **Voltage Limit:**  
-  - **1120 mV:** Safe  
-  - **1160 mV:** Use with caution  
+- **Voltage Limit:**
+  - **1120 mV:** Safe
+  - **1160 mV:** Use with caution
 
-- **Table Config:** AUTO  
+- **Table Config:** AUTO
 
-> **ℹ️ Note:** Exceeding the PMIC limit during **Boost Mode** is safe, as it only occurs for short bursts (typically under 30 seconds), preventing long-term hardware stress.  
+> **ℹ️ Note:** Exceeding the PMIC limit during **Boost Mode** is safe, as it only occurs for short bursts (typically under 30 seconds), preventing long-term hardware stress.
 
 
 ## GPU Settings
 
-- **Undervolt Mode:** 2  
+- **Undervolt Mode:** 2
 
-- **DVFS:**  
-  - **2 (Hijack method):** Recommended — provides the lowest value possible.  
-  - **1 (Official service method):** Use only if you encounter issues with mode 2.  
+- **DVFS:**
+  - **2 (Hijack method):** Recommended — provides the lowest value possible.
+  - **1 (Official service method):** Use only if you encounter issues with mode 2.
 
-- **Vmin:** 550–620 mV  
-  - Typically not worth adjusting, as you should always use max RAM.  
+- **Vmin:** 550–620 mV
+  - Typically not worth adjusting, as you should always use max RAM.
 
-- **Vmin RAM OC:** AUTO  
+- **Vmin RAM OC:** AUTO
 
-- **Vmax:** 800 mV  
+- **Vmax:** 800 mV
 
-- **Voltage Offset:** 5–15  
-  - Test with 5, 10, or 15 when using UV2.  
-  - Some GPUs may require **0** for stability.  
+- **Voltage Offset:** 5–15
+  - Test with 5, 10, or 15 when using UV2.
+  - Some GPUs may require **0** for stability.
 
 
 ## RAM Settings
 
-- **DRAM Timing:**  
-  - **0 — AUTO_ADJ:** Auto-adjust MTC table with LPDDR4 3733 Mbps specs, 16Gb density. Change timing with Advanced Config (Default).  
-  - **1 — AUTO_ADJ_HP:** Same as AUTO_ADJ, but with RAM power-down disabled.  
+- **DRAM Timing:**
+  - **0 — AUTO_ADJ:** Auto-adjust MTC table with LPDDR4 3733 Mbps specs, 16Gb density. Change timing with Advanced Config (Default).
+  - **1 — AUTO_ADJ_HP:** Same as AUTO_ADJ, but with RAM power-down disabled.
 
-  > **ℹ️ Tip:** AUTO_ADJ_HP improves latency, but some RAM modules may not handle it well.  
-  > - First, find your max RAM clocks and timings with **AUTO_ADJ**.  
-  > - Then test AUTO_ADJ_HP. If stable, use it — otherwise, stick to AUTO_ADJ.  
+  > **ℹ️ Tip:** AUTO_ADJ_HP improves latency, but some RAM modules may not handle it well.
+  > - First, find your max RAM clocks and timings with **AUTO_ADJ**.
+  > - Then test AUTO_ADJ_HP. If stable, use it — otherwise, stick to AUTO_ADJ.
 
-- **DVB Shift:** 1–5  
-  - Boosts SoC voltage to help stabilize RAM, especially at high frequencies (2400 MHz+).  
+- **DVB Shift:** 1–5
+  - Boosts SoC voltage to help stabilize RAM, especially at high frequencies (2400 MHz+).
 
 
 ### RAM Configuration Based on Tier List
@@ -163,20 +168,20 @@ This setting adjusts how much of your GPU can be utilized:
 
 ### RAM Tuning Notes
 
-> **💡 Extra Headroom:** For an additional 66–100 MHz, try **1212.5 mV**. This can also help with tighter timings.  
+> **💡 Extra Headroom:** For an additional 66–100 MHz, try **1212.5 mV**. This can also help with tighter timings.
 
-> **🧪 Testing Method:**  
-> 1. Start by setting **DVB = 4** using the common preset.  
-> 2. Test **ST (Super Tight) timings**.  
-> 3. If ST fails, relax timings one by one in this order: `t8 → t1 → t2 → t3 → t6 → t7 → t4 → t5`.  
-> 4. For pushing beyond ST, apply the same incremental approach.  
+> **🧪 Testing Method:**
+> 1. Start by setting **DVB = 4** using the common preset.
+> 2. Test **ST (Super Tight) timings**.
+> 3. If ST fails, relax timings one by one in this order: `t8 → t1 → t2 → t3 → t6 → t7 → t4 → t5`.
+> 4. For pushing beyond ST, apply the same incremental approach.
 
-> **⚡ Performance:** ST timings provide enhanced performance over common timings.  
+> **⚡ Performance:** ST timings provide enhanced performance over common timings.
 
-> **⚠️ Stability Notes:**  
-> - Lower **T5** or **T6** if you encounter issues.  
-> - RAM contributes the most to overall performance — prioritize finding your maximum frequency first.  
-> - Rarely, some modules may fail even with common timings. If so, lower timings until stable.  
+> **⚠️ Stability Notes:**
+> - Lower **T5** or **T6** if you encounter issues.
+> - RAM contributes the most to overall performance — prioritize finding your maximum frequency first.
+> - Rarely, some modules may fail even with common timings. If so, lower timings until stable.
 
 # Clock Settings(Safe)
 
@@ -184,13 +189,13 @@ This setting adjusts how much of your GPU can be utilized:
 *Switch units available from August 2019 and beyond, includes OLED & requires modchip*
 - **CPU:** 1963MHz
 - **GPU:** 998MHz
-- **RAM:** 2133MHz-2500MHz+ (whatever is stable)
- !!! warning ** Note:** Drawing over 8W on battery will cause battery issues. Please avoid doing that for extended periods!
+- **RAM:** 2133MHz-2500MHz+ (whatever is stable, 2400MHz is recommended if stable for best battery life to performance ratio.)
+ !!! warning ** Note:** Drawing over 8.6W on battery will cause battery issues. Please avoid doing that for extended periods!
 
 ### Switch Lite Max Safe Clocks on Battery [HDH-001]
 - **CPU:** 1785MHz
 - **GPU:** 921MHz
-- **RAM:** 2133MHz-2500MHz+ (whatever is stable)
+- **RAM:** 2133MHz-2500MHz+ (whatever is stable, 2400MHz is recommended if stable for best battery life to performance ratio.)
  !!! warning  ** Note:** Drawing over 6.5W on battery will cause battery issues. Please avoid doing that for extended periods!
 
 !!! note Switch Lite limits are lower due to the 12W board power limit, but counts as Mariko for all other purposes.
@@ -199,14 +204,27 @@ This setting adjusts how much of your GPU can be utilized:
 *Switch units available from
 
  August 2019 and beyond, includes OLED & requires modchip*
-- **CPU:** 2397MHz on CPU speedo < 1650, 2601MHz on CPU speedo ≥ 1650 with undervolt
-- **GPU:** 1228MHz (1267MHz and above on GPU speedo ≥ 1650 with undervolt, otherwise lower)
-- **RAM:** 2133MHz-3000MHz+ (whatever is stable)
+- **CPU:** 
+  - 2397MHz on CPU speedo < 1600
+  - 2499MHz on CPU speedo ≥ 1600
+  - 2601MHz on CPU speedo ≥ 1700
+- **GPU:**
+  - Sched **off**: 1228MHz (safe with 1228MHz voltage < 800 mV, otherwise use 1152MHz)
+  -  Sched **on**: 1267MHz (safe with 1228MHz voltage < 800 mV)
+  - 1228MHz sched **off** outperforms 1267MHz sched **on**, so it's recommended.
+ - **RAM:**
+   - 2133MHz-3000MHz+ (whatever is stable)
 
 ### Switch Lite Max Clocks Plugged [HDH-001]
-- **CPU:** 1963MHz (2397MHz on CPU speedo ≥ 1650 with undervolt)
-- **GPU:** 1228MHz(1267MHz on GPU speedo ≥ 1650 with undervolt, otherwise lower)
-- **RAM:** 2133MHz-2800MHz+ (whatever is stable)
+- **CPU:**
+  - 1963MHz on CPU Speedo < 1650
+  - 2397MHz on CPU speedo ≥ 1650
+- **GPU:**
+  - Sched **off**: 1228MHz (safe with 1228MHz voltage < 800 mV, otherwise use 1152MHz)
+  -  Sched **on**: 1267MHz (safe with 1228MHz voltage < 800 mV)
+  - 1228MHz sched **off** outperforms 1267MHz sched **on**, so it's recommended.
+- **RAM:**
+  - 2133MHz-2800MHz+ (whatever is stable)
 
 !!! note Switch Lite limits are lower due to the 12W board power limit, but counts as Mariko for all other purposes.
 
