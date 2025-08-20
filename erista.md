@@ -82,36 +82,69 @@ Almost all Erista units have Samsung MGCH RAM. Hynix NLE and Micron WT:C are rar
 # OC Settings for Switchcraft
 
 ### CPU Settings
-- **Boost Clock:** 2091MHz if you use UV3, otherwise use 1785MHz
-- **Undervolt Mode:** 1-5 (use the max that is stable)
-- **Vmin:** 800
-- **Voltage Limit:** 1225mv
+
+- **Boost Clock:**  
+  - **2091 MHz:** with max uv
+- **Undervolt Mode:** 1–5 (use the maximum stable value)  
+
+- **Vmin:** 800 mV  
+
+- **Voltage Limit:** 1225 mV  
+
+> **ℹ️ Note:** Exceeding the PMIC limit during **Boost Mode** is safe, as it only occurs for short bursts (typically under 30 seconds), preventing long-term hardware stress.  
+
 
 ### GPU Settings
-- **Undervolt Mode:** 2
-- **Vmin:** 740-780mv
-- **Voltage Offset:** 0-30
-!!!note If you want to safely use 998Mhz gpu, you need to keep gpu volt under 950 (slightly differs depending on iddq and temperature)
+
+- **Undervolt Mode:** 2  
+
+- **Vmin:** 740–780 mV  
+
+- **Voltage Offset:** 0–30  
+
+> **⚠️ Note:** To safely use a **998 MHz GPU clock**, keep GPU voltage **below 950 mV** (exact value may vary slightly depending on IDDQ and temperature).  
+
+
 ## RAM Settings
-- **DRAM Timing:**
-  - 0: AUTO_ADJ: Auto adjust mtc table with LPDDR4 3733 Mbps specs, 16Gb density. Change timing with Advanced Config (Default)
-  - 1: AUTO_ADJ_HP: Same as AUTO_ADJ with ram power down disabled.
 
-  - AUTO_ADJ_HP has improved latency, but some ram modules cannot handle it well, especially on erista. (Timings have to be dropped or frequencies need to be lowered)
-  Therefore it's recommended to find your maximum ram clocks and timings with AUTO_ADJ and then try AUTO_ADJ_HP afterwards.
-  If it's stable, use it, otherwise stick with AUTO_ADJ.
+- **DRAM Timing:**  
+  - **0 — AUTO_ADJ:** Auto-adjust MTC table with LPDDR4 3733 Mbps specs, 16Gb density. Change timing with Advanced Config (Default).  
+  - **1 — AUTO_ADJ_HP:** Same as AUTO_ADJ, but with RAM power-down disabled.  
 
-- **DVB Shift:** 1-5 (Boosting the SoC voltage helps stabilize RAM).
-Most of the time, a DVB shift of 2 will be enough.
-#### Samsung MGCH
-- **RAM Clock:** 1862-2133Mhz (Very good bins may reach slightly higher clocks, clocks up to 2246Mhz are potentially possible with overvolting.)
-- **VDD2:** 1175–1237 mV (The module is rated for 1175 mV. You can overvolt slightly if you want, since 1237 mV is allowed in L4T, so it's assumed to be safe, 1175mV is guaranteed to be safe.)
-- **Timings:** Common (4-4-4) 0-1-5-4-6 or ST(Super tight) (4-5-9) 1-2-6-4-6. Super Tight timings provide enhanced performance over the common timings.
+  > **ℹ️ Tip:** AUTO_ADJ_HP improves latency, but some RAM modules — especially on Erista — may not handle it well.  
+  > - First, find your maximum RAM clocks and timings with **AUTO_ADJ**.  
+  > - Then test AUTO_ADJ_HP. If stable, use it. Otherwise, stick with AUTO_ADJ.  
 
-To find your maximum frequency, start by setting DVB to 2 using the common preset. Next, test ST. If ST fails, incrementally increase the timings one by one in this order: t8, t1, t2, t3, t6, t7, t4 and t5. Be sure to test each timing adjustment individually. If you want to go beyond ST timings, apply the same methodology as described above.
-Super Tight timings provide enhanced performance over the common timings.
-!!! note **Note**: Lower T5 or T6 or T3 in case you have issues.
-!!! note RAM delivers the most performance, so prioritize finding your maximum frequency first.
+- **DVB Shift:** 1–5 (boosts SoC voltage to help stabilize RAM).  
+  - In most cases, a shift of **2** is sufficient.  
+
+
+#### Samsung MGCH RAM
+
+- **RAM Clock:** 1862–2133 MHz  
+  - Very strong bins may reach slightly higher.  
+  - With overvolting, **up to 2246 MHz** may be possible.  
+
+- **VDD2:** 1175–1237 mV  
+  - Rated for **1175 mV** (guaranteed safe).  
+  - Can overvolt slightly (1237 mV is allowed in L4T and assumed safe).  
+
+- **Timings:**  
+  - **Common:** (4-4-4) → 0-1-5-4-6  
+  - **Super Tight (ST):** (4-5-9) → 1-2-6-4-6  
+  - ST timings provide **enhanced performance** compared to common timings.  
+
+> **🧪 Testing Method:**  
+> 1. Start with **DVB = 2** using common preset.  
+> 2. Test **ST timings**.  
+> 3. If ST fails, relax timings incrementally in this order: `t8 → t1 → t2 → t3 → t6 → t7 → t4 → t5`.  
+> 4. To push beyond ST timings, apply the same incremental approach.  
+
+> **⚡ Performance:** Super Tight timings deliver improved performance compared to common timings.  
+
+> **⚠️ Stability Notes:**  
+> - Lower **T5**, **T6**, or **T3** if you encounter issues.  
+> - RAM contributes the most to overall performance — prioritize maximizing frequency first.  
 
 
 # Clock Settings
