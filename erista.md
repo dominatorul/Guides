@@ -1,3 +1,6 @@
+# THIS IS A BACKUP AND MAY BE OUTDATED
+# [FOLLOW THIS GUIDE INSTEAD](https://rentry.co/erista/): [https://rentry.co/erista/](https://rentry.co/erista/)
+
 # Erista OC Guide
 
 *Made with love by Dominatorul. Some parts of this guide belong to ChanseyIsTheBest and Lightos_*
@@ -35,16 +38,18 @@
 - The main limiting factor for Erista units is the 18W limit.
 
 ### Erista CPU Limits:
-- The board limit of 18W is reached at 1785MHz without any UV or 2091MHz with CPU UV1.
+- The board limit of 18W is reached at 1785 MHz without any UV or 2091 MHz with CPU UV1.
 
 ### Erista GPU Limits:
-- The board limit of 18W is reached at 921MHz without GPU UV with moderate speedos.
+- The board limit of 18W is reached at 921 MHz without GPU UV with moderate speedos.
+
+Reducing the voltage (**undervolting, UV**) decreases power draw, current, heat and helps avoid exceeding the board limit.
 
 ### GPU Scheduling:
 - **On:** Caps gpu usage at ~96.7%
 - **Off:** Caps gpu usage at  ~99.7%
+- **Recommended:** GPU scheduling **on**.
 !!! danger  ** Warning:** Disabling GPU Scheduling will slightly increase power draw. Use it with caution.
-
 ---
 
 #Monitoring Your Switch
@@ -65,6 +70,11 @@
 
 CPU/GPU Speedos range from approximately 1980 to 2200, with SoC speedos ranging from approximately 1899 to 2050. An Erista with a higher speedo requires less voltage to meet the same clock speed compared to another Switch with a lower speedo. A CPU/GPU speedo of 2100 is generally considered good.
 
+**Speedo Brackets**
+>  - Speedos are divided into **brackets**.
+>  - **CPU UV mode** depends on the position within your bracket, but the resulting **voltage** depends on your specific speedo.
+>  - It doesn’t matter how high you can set CPU UV mode — what matters is using your **maximum possible** CPU UV mode.
+
 ---
 
 #RAM Types
@@ -83,82 +93,86 @@ Almost all Erista units have Samsung MGCH RAM. Hynix NLE and Micron WT:C are rar
 
 ### CPU Settings
 
-- **Boost Clock:**  
-  - **2091 MHz:** with max uv
-- **Undervolt Mode:** 1–5 (use the maximum stable value)  
+- **Boost Clock:**
+  - **2091 MHz:** <2080 speedo
+  - **2295 MHz:** >2080 speedo
 
-- **Vmin:** 800 mV  
+- **Undervolt Mode:** 1–5 (use the maximum stable value)
 
-- **Voltage Limit:** 1225 mV  
+- **Vmin:** 800 mV
 
-> **ℹ️ Note:** Exceeding the PMIC limit during **Boost Mode** is safe, as it only occurs for short bursts (typically under 30 seconds), preventing long-term hardware stress.  
+- **Voltage Limit:** 1225 mV
+
+> **ℹ️ Note:** Exceeding the PMIC limit during **Boost Mode** is safe, as it only occurs for short bursts (typically under 30 seconds), preventing long-term hardware stress.
 
 
 ### GPU Settings
 
-- **Undervolt Mode:** 2  
+- **Undervolt Mode:** 2
 
-- **Vmin:** 740–780 mV  
+- **Vmin:** 740–780 mV
 
-- **Voltage Offset:** 0–30  
+- **Voltage Offset:** 0–30
 
-> **⚠️ Note:** To safely use a **998 MHz GPU clock**, keep GPU voltage **below 950 mV** (exact value may vary slightly depending on IDDQ and temperature).  
+> **⚠️ Note:** To safely use a **998 MHz GPU clock**, keep GPU voltage **below 950 mV** (exact value may vary slightly depending on IDDQ and temperature).
 
 
 ## RAM Settings
 
-- **DRAM Timing:**  
-  - **0 — AUTO_ADJ:** Auto-adjust MTC table with LPDDR4 3733 Mbps specs, 16Gb density. Change timing with Advanced Config (Default).  
-  - **1 — AUTO_ADJ_HP:** Same as AUTO_ADJ, but with RAM power-down disabled.  
+- **DRAM Timing:**
+  - **0 — AUTO_ADJ:** Auto-adjust MTC table with LPDDR4 3733 Mbps specs, 16Gb density. Change timing with Advanced Config (Default).
+  - **1 — AUTO_ADJ_HP:** Same as AUTO_ADJ, but with RAM power-down disabled.
 
-  > **ℹ️ Tip:** AUTO_ADJ_HP improves latency, but some RAM modules — especially on Erista — may not handle it well.  
-  > - First, find your maximum RAM clocks and timings with **AUTO_ADJ**.  
-  > - Then test AUTO_ADJ_HP. If stable, use it. Otherwise, stick with AUTO_ADJ.  
+  > **ℹ️ Tip:** AUTO_ADJ_HP improves latency, but some RAM modules — especially on Erista — may not handle it well.
+  > - First, find your maximum RAM clocks and timings with **AUTO_ADJ**.
+  > - Then test AUTO_ADJ_HP. If stable, use it. Otherwise, stick with AUTO_ADJ.
 
-- **DVB Shift:** 1–5 (boosts SoC voltage to help stabilize RAM).  
-  - In most cases, a shift of **2** is sufficient.  
+- **DVB Shift:** 1–5 (boosts SoC voltage to help stabilize RAM).
+  - In most cases, a shift of **2** is sufficient.
 
 
 #### Samsung MGCH RAM
 
-- **RAM Clock:** 1862–2133 MHz  
-  - Very strong bins may reach slightly higher.  
-  - With overvolting, **up to 2246 MHz** may be possible.  
+- **RAM Clock:** 1862–2133 MHz
+  - Very strong bins may reach slightly higher.
+  - With overvolting, **up to 2246 MHz** may be possible.
 
-- **VDD2:** 1175–1237 mV  
-  - Rated for **1175 mV** (guaranteed safe).  
-  - Can overvolt slightly (1237 mV is allowed in L4T and assumed safe).  
+- **VDD2:** 1175–1237 mV
+  - Rated for **1175 mV** (guaranteed safe).
+  - You can overvolt slightly for a frequency boost (1237 mV is allowed in L4T and assumed to be safe).
 
-- **Timings:**  
-  - **Common:** (4-4-4) → 0-1-5-4-6  
-  - **Super Tight (ST):** (4-5-9) → 1-2-6-4-6  
-  - ST timings provide **enhanced performance** compared to common timings.  
+- **Timings:**
+  - **Common:** (4-4-4) → 0-1-5-4-6
+  - **Super Tight (ST):** (4-5-9) → 1-2-6-4-6
+  - ST timings provide **enhanced performance** compared to common timings.
 
-> **🧪 Testing Method:**  
-> 1. Start with **DVB = 2** using common preset.  
-> 2. Test **ST timings**.  
-> 3. If ST fails, relax timings incrementally in this order: `t8 → t1 → t2 → t3 → t6 → t7 → t4 → t5`.  
-> 4. To push beyond ST timings, apply the same incremental approach.  
+> **🧪 Testing Method:**
+> 1. Start with **DVB = 2** using common preset.
+> 2. Test **ST timings**.
+> 3. If ST fails, relax timings incrementally in this order: `t8 → t1 → t2 → t3 → t6 → t7 → t4 → t5`.
+> 4. To push beyond ST timings, apply the same incremental approach.
 
-> **⚡ Performance:** Super Tight timings deliver improved performance compared to common timings.  
+> **⚡ Performance:** Super Tight timings deliver improved performance compared to common timings.
 
-> **⚠️ Stability Notes:**  
-> - Lower **T5**, **T6**, or **T3** if you encounter issues.  
-> - RAM contributes the most to overall performance — prioritize maximizing frequency first.  
+> **⚠️ Stability Notes:**
+> - Lower **T5**, **T6**, or **T3** if you encounter issues.
+> - RAM contributes the most to overall performance — prioritize maximizing frequency first.
 
 
 # Clock Settings
 
 ### Erista Max Plugged [HAC-001(-01), HEG-001]
 *Switch units available from August 2019 and beyond, includes OLED & requires modchip*
-- **CPU:** 2295MHz (Use only with UV5 on good speedo), 2091MHz (Use only with UV3-5), 1785MHz (UV is recommended)
-- **GPU:** 998MHz (Use it only with UV2, try to avoid going over 1000mv), 921MHz (safe, use it with undervolt)
-- **RAM:** 1862MHz-2133MHz+ (whatever is stable and within 1175mv VDD2) (HEAVILY DEPENDENT ON RAM TYPE)
+- **CPU:** 2295 MHz (Use only with UV5 on good speedo), 2091 MHz (Use only with UV3-5), 1785 MHz (UV is recommended)
+- **GPU:** 998 MHz (Use it only with UV2, try to avoid going over 950 mV), 921 MHz (safe, use it with undervolt)
+- **RAM:** 1862 MHz-2133 MHz+ (whatever is stable and within 1175 mV VDD2) (HEAVILY DEPENDENT ON RAM TYPE)
 
 ### Erista Max Safe Clocks on Battery [HDH-001]
-- **CPU:** 1785MHz
-- **GPU:** 460MHz
-- **RAM:** 1862MHz-2133MHz+ (whatever is stable and within 1175mv VDD2) (HEAVILY DEPENDENT ON RAM TYPE)
+- **CPU:** 1785 MHz
+- **GPU:** 460 MHz
+- **RAM:** 1862 MHz-2133 MHz+ (whatever is stable and within 1175 mV VDD2) (HEAVILY DEPENDENT ON RAM TYPE)
+ - If you have a good ram module that can hit 2208 MHz+, it's recommended to use at most 2188 MHz to safe battery.
+ - The SoC cannot handle high frequencies very well and power draw skyrockets past said frequency.
 !!! warning **Note:** Drawing over 8.6W on battery will cause battery issues. Please avoid doing that for extended periods!
 
 ---
