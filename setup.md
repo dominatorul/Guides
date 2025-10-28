@@ -1,3 +1,6 @@
+# THIS IS A BACKUP AND MAY BE OUTDATED
+# [FOLLOW THIS GUIDE INSTEAD](https://rentry.co/howtoget60fps/): [https://rentry.co/howtoget60fps/](https://rentry.co/howtoget60fps/)
+
 # 🎮 How to Set Up Everything for **60 FPS** in Games! 🎮
 
 Welcome! In this guide, you’ll set up **EOS** and **FPS Locker** to boost performance to 60 FPS. This guide is packed with steps and tips to make the whole process easier. Let’s dive in! 🕹️
