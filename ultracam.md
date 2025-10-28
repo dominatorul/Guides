@@ -1,3 +1,6 @@
+# THIS IS A BACKUP AND MAY BE OUTDATED
+# [FOLLOW THIS GUIDE INSTEAD](https://rentry.co/ultracam/): [https://rentry.co/ultracam/](https://rentry.co/ultracam/)
+ 
  # 🛠️ Ultracam Benchmark Guide 🛠️
 
 Welcome! In this guide made by Dominatorul, you’ll learn how to use **Ultracam** to benchmark your Switch effectively.
