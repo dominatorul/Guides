@@ -1,7 +1,10 @@
+# THIS IS A BACKUP AND MAY BE OUTDATED
+# [FOLLOW THIS GUIDE INSTEAD](https://rentry.co/howtoteststability/): [https://rentry.co/howtoteststability/](https://rentry.co/howtoteststability/)
+
 # Stability Testing Guide
 
 **WIP Guide by Dominatorul**
-Some parts of this guide were contributed by ChanseyIsTheBest.
+Some parts of this guide were contributed by ChanseyIsTheBest and Lightos_
 
 ---
 
@@ -29,7 +32,7 @@ The only reliable artificial CPU stress test application is **`StressNX`**. To t
 1. Press `X` to set the test mode to `matrixpod`.
 2. Press `Y` to enable **`burning`** mode.
 3. Press `A` to start the test.
-4. Test all frequencies for about 15-30 seconds and check if the voltage result is stable.
+4. Test all frequencies for about 15-30 seconds and check if it remains stable.
 
 ### Recommended Games for Testing CPU Undervolting (UV)
 
@@ -63,6 +66,12 @@ Testing GPU stability using GPU voltage offsets or undervolting (UV3) can be cha
 
 3. **`Pikmin 3 Deluxe`**
    - **Low GPU Voltage and Vmin:** Pixel corruption in the bottom left corner of the image.
+
+4. **`Monster Hunter Rise`**
+    - **Too low GPU Voltage:** Freezes after playing for an extended period of time. (Credits to Arcdelta)
+
+5. **`Xenoblade Chronicles X`**
+    - **Too low GPU Voltage:** Game crashes on main page. (Credits to Happy)
 
 ---
 
@@ -106,9 +115,9 @@ If you can't dock your switch, use `ReverseNX`.
 
 ## Benchmarking Ram
 
-`MemtoolkitNX` is recommended for benchmarking ram (useful for tightening timings for instance), but may also be used for cpu and gpu.
-To run it, simply start it using title override at its default settings.
-!!! danger `MemtoolkitNX` is known for being unreliable for testing stability, only use it for benchmarking.
+`MemtoolkitNX` is mainly recommended for RAM benchmarking (such as fine-tuning memory timings), but it can also be used for CPU and GPU tests.
+To run it, launch the tool via title override with its default settings.
+!!! danger `MemtoolkitNX` is not reliable for stability testing — use it only for benchmarking purposes.
 
 ## Ultracam Benchmark Test
 
